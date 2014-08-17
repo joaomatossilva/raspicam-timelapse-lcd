@@ -7,9 +7,14 @@ import picamera
 import Adafruit_CharLCD as LCD
 
 FRAMES_PER_HOUR = 6
+UPDATE_SECONDS = 5
 ROTATION = 90
 
 lcd = LCD.Adafruit_CharLCDPlate()
+
+def calculate_seconds_to_next(start)
+    seconds = int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start)
+    return seconds - seconds % UPDATE_SECONDS
 
 def capture_frame(path, frame):
     lcd.clear()
@@ -37,14 +42,14 @@ def time_lapse():
         # account the length of time it took to capture the
         # image when calculating the delay
         while True:
-            seconds_to_next = int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start)
+            seconds_to_next = calculate_seconds_to_next(start)
             if seconds_to_next <= 0:
                 break
             lcd.clear()
             lcd.message('taken: %03d\n' % frame)
             lcd.message('next: %s' % str(datetime.timedelta(seconds=seconds_to_next)))
-            update_seconds_to_next = seconds_to_next - 5
-            while update_seconds_to_next > int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start) :
+            update_seconds_to_next = seconds_to_next - UPDATE_SECONDS
+            while update_seconds_to_next <= calculate_seconds_to_next(start) :
                 if lcd.is_pressed(LCD.SELECT):
                     return
             #time.sleep(1)
