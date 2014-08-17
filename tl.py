@@ -39,7 +39,7 @@ while True:
     # image when calculating the delay
     while True:
         seconds_to_next = int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start)
-        if(seconds_to_next <= 0)
+        if seconds_to_next <= 0:
             break
         lcd.clear()
         lcd.message('taken: %03d' % frame)
