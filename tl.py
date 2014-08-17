@@ -13,7 +13,7 @@ FRAMES_PER_HOUR = 6
 ROTATION = 90
 
 lcd = LCD.Adafruit_CharLCDPlate()
-lcd.backlight(lcd.ON)
+#lcd.backlight(lcd.ON)
 
 def capture_frame(path, frame):
     lcd.clear()
