@@ -12,9 +12,9 @@ ROTATION = 90
 
 lcd = LCD.Adafruit_CharLCDPlate()
 
-def calculate_seconds_to_next(start)
+def calculate_seconds_to_next(start):
     seconds = int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start)
-    return seconds - seconds % UPDATE_SECONDS
+    return seconds + seconds % UPDATE_SECONDS
 
 def capture_frame(path, frame):
     lcd.clear()
