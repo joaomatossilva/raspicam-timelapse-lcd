@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 from time import sleep, strftime
 from datetime import datetime
 import picamera
