@@ -5,14 +5,14 @@ from datetime import datetime
 import picamera
 from Adafruit_I2C import Adafruit_I2C
 from Adafruit_MCP230xx import Adafruit_MCP230XX
-from Adafruit_CharLCDPlate import Adafruit_CharLCDPlate
+import Adafruit_CharLCD as LCD
 
 #VIDEO_DAYS = 5
 FRAMES_PER_HOUR = 6
 #FRAMES = FRAMES_PER_HOUR * 24 * VIDEO_DAYS
 ROTATION = 90
 
-lcd = Adafruit_CharLCDPlate()
+lcd = LCD.Adafruit_CharLCDPlate()
 lcd.backlight(lcd.ON)
 
 def capture_frame(path, frame):
