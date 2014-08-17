@@ -30,9 +30,11 @@ directory = '/home/pi/%s' % date
 if not os.path.exists(directory):
     os.makedirs(directory)
 
+frame = 0
 # Capture the images
 while True:
     # Note the time before the capture
+    frame = frame + 1
     start = time.time()
     capture_frame(directory, frame)
     # Wait for the next capture. Note that we take into
