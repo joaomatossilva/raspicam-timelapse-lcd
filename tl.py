@@ -43,10 +43,11 @@ def time_lapse():
             lcd.clear()
             lcd.message('taken: %03d\n' % frame)
             lcd.message('next: %s' % str(datetime.timedelta(seconds=seconds_to_next)))
-            if lcd.is_pressed(LCD.SELECT):
-                return
-	    if time.time() - start < 5:
-                time.sleep(5 - (time.time() - start))
+            update_seconds_to_next = seconds_to_next - 5
+            while update_seconds_to_next > int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start) :
+                if lcd.is_pressed(LCD.SELECT):
+                    return
+            #time.sleep(1)
 
 while True:
     lcd.clear()
