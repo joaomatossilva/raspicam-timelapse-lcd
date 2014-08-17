@@ -12,7 +12,7 @@ FRAMES_PER_HOUR = 6
 #FRAMES = FRAMES_PER_HOUR * 24 * VIDEO_DAYS
 ROTATION = 90
 
-lcd = Adafruit_CharLCDPlate(busnum = 0)
+lcd = Adafruit_CharLCDPlate()
 lcd.backlight(lcd.ON)
 
 def capture_frame(path, frame):
