@@ -45,6 +45,6 @@ while True:
         if seconds_to_next <= 0:
             break
         lcd.clear()
-        lcd.message('taken: %03d' % frame)
+        lcd.message('taken: %03d\n' % frame)
         lcd.message('next: %s' % str(datetime.timedelta(seconds=seconds_to_next)))
         time.sleep(1)
