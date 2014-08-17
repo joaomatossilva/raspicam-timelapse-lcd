@@ -19,7 +19,7 @@ def capture_frame(path, frame):
         time.sleep(2)
         cam.capture('%s/frame%03d.jpg' % (path, frame))
 
-def time_lapse()
+def time_lapse():
     #create directory with date
     date = datetime.datetime.now().strftime('%Y%m%d')
     directory = '/home/pi/%s' % date
