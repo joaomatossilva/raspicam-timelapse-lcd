@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-from time import sleep, strftime
-from datetime import datetime
+import time
+import datetime
 import os
 import picamera
 #from Adafruit_I2C import Adafruit_I2C
