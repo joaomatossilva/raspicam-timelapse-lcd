@@ -45,12 +45,15 @@ def time_lapse():
             lcd.message('next: %s' % str(datetime.timedelta(seconds=seconds_to_next)))
             if lcd.is_pressed(LCD.SELECT):
                 return
-            time.sleep(5 - (time.time() - start))
+	    if time.time() - start < 5:
+                time.sleep(5 - (time.time() - start))
 
 while True:
-    lc.clear()
+    lcd.clear()
     lcd.message('Press SELECT to\n start...')
-    if not lcd.is_pressed(LCD.SELECT):
-        continue
+    while True:
+        if not lcd.is_pressed(LCD.SELECT):
+            continue
+	break
     time_lapse()
 
