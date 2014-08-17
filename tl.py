@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import time
-from datetime import datetime
+import datetime
 import os
 import picamera
 #from Adafruit_I2C import Adafruit_I2C
@@ -25,7 +25,7 @@ def capture_frame(path, frame):
         cam.capture('%s/frame%03d.jpg' % (path, frame))
 
 #create directory with date
-date = datetime.now().strftime('%b %d')
+date = datetime.datetime.now().strftime('%b %d')
 directory = '/home/pi/%s' % date
 if not os.path.exists(directory):
     os.makedirs(directory)
