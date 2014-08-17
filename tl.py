@@ -20,7 +20,7 @@ def capture_frame(path, frame):
     lcd.clear()
     lcd.message('Shooting #%03d' % frame)
     with picamera.PiCamera() as cam:
-        cam.rotation(ROTATION)
+        cam.rotation = ROTATION
         time.sleep(2)
         cam.capture('%s/frame%03d.jpg' % (path, frame))
 
