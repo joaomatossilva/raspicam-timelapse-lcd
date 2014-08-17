@@ -14,7 +14,7 @@ lcd = LCD.Adafruit_CharLCDPlate()
 
 def calculate_seconds_to_next(start):
     seconds = int(60 * 60 / FRAMES_PER_HOUR) - (time.time() - start)
-    return seconds + seconds % UPDATE_SECONDS
+    return seconds - seconds % UPDATE_SECONDS
 
 def capture_frame(path, frame):
     lcd.clear()
@@ -48,8 +48,7 @@ def time_lapse():
             lcd.clear()
             lcd.message('taken: %03d\n' % frame)
             lcd.message('next: %s' % str(datetime.timedelta(seconds=seconds_to_next)))
-            update_seconds_to_next = seconds_to_next - UPDATE_SECONDS
-            while update_seconds_to_next <= calculate_seconds_to_next(start) :
+            while calculate_seconds_to_next(start) == seconds_to_next :
                 if lcd.is_pressed(LCD.SELECT):
                     return
             #time.sleep(1)
