@@ -3,8 +3,8 @@
 from time import sleep, strftime
 from datetime import datetime
 import picamera
-from Adafruit_I2C import Adafruit_I2C
-from Adafruit_MCP230xx import Adafruit_MCP230XX
+#from Adafruit_I2C import Adafruit_I2C
+#from Adafruit_MCP230xx import Adafruit_MCP230XX
 import Adafruit_CharLCD as LCD
 
 #VIDEO_DAYS = 5
