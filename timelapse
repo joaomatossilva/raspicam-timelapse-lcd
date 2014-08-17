@@ -17,8 +17,8 @@ export HOME
 case "$1" in
     start)
         echo "Starting Timelapse"
-        cd /home/pi/timelapse
-        /home/pi/timelapse/tl.py 2>&1 &
+        cd /home/pi/raspicam-timelapse-lcd
+        /home/pi/raspicam-timelapse-lcd/tl.py 2>&1 &
     ;;
     stop)
         echo "Stopping Timelapse"
