@@ -21,6 +21,18 @@ def capture_frame(path, frame):
     lcd.message('Shooting #%03d' % frame)
     with picamera.PiCamera() as cam:
         cam.rotation = ROTATION
+	cam.resolution = (1920, 1080)
+	cam.framerate = 30
+    # Give the camera's auto-exposure and auto-white-balance algorithms
+    # some time to measure the scene and determine appropriate values
+    	cam.ISO = 200
+    	time.sleep(2)
+    	# Now fix the values
+    	cam.shutter_speed = cam.exposure_speed
+    	#cam.exposure_mode = 'off'
+   	g = cam.awb_gains
+    	cam.awb_mode = 'off'
+	cam.awb_gains = g
         time.sleep(2)
         cam.capture('%s/frame%03d.jpg' % (path, frame))
 
