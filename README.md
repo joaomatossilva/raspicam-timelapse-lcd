@@ -4,6 +4,8 @@ raspicam-timelapse-lcd
 Use the Adafriut Lcd Controller for taking Raspberry Pi camera stills for making a time lapse video.
 This project is inspired on [rpi-timelapse](https://github.com/dps/rpi-timelapse)
 
+![photo](https://raw.githubusercontent.com/kappy/raspicam-timelapse-lcd/master/pics/photo.jpg)
+
 
 ## Hardware
 
